@@ -1,1 +1,47 @@
 @use '@/assets/scss/_reset.scss';
+
+:root {
+    --bg-1: #F4EFE9;
+    --bg-2: #d6d6d6;
+
+    --text-1: #1A1A1A;
+    --text-2: #1D1D1D;
+
+    --ui-1-: #a1a1a1;
+    --ui-2: #c5c5c5;
+    --hover: #fc4c90;
+
+    --from-1: #804546;
+    --from-2: #ff0062;
+    --from-3: #82b8ce;
+
+    --bg-gradient: radial-gradient(ellipse at center, var(--from-1), transparent),
+        radial-gradient(ellipse at top, var(--from-2), transparent),
+        radial-gradient(ellipse at bottom, var(--from-3));
+
+    --b-r: 10px;
+
+    --z-root: 999;
+    --z-max: 998;
+}
+
+.dark {
+    --bg-1: #1A1A1A;
+    --bg-2: #1D1D1D;
+
+    --text-1: #F4EFE9;
+    --text-2: #d6d6d6;
+
+    --ui-1-: #a1a1a1;
+    --ui-2: #c5c5c5;
+    --hover: #fc4c90;
+
+    --from-1: #711012;
+    --from-2: #FF0062;
+    --from-3: #101739;
+}
+
+body {
+    height: 100%;
+    color: var(--text-1);
+}

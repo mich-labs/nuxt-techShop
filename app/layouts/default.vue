@@ -1,4 +1,6 @@
 <template>
     <div>Store layout</div>
-    <slot />
+    <app-page>
+        <slot />
+    </app-page>
 </template>
