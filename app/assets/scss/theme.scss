@@ -7,7 +7,7 @@
     --text-1: #1A1A1A;
     --text-2: #1D1D1D;
 
-    --ui-1-: #a1a1a1;
+    --ui-1: #a1a1a1;
     --ui-2: #c5c5c5;
     --hover: #fc4c90;
 
@@ -43,5 +43,9 @@
 
 body {
     height: 100%;
+    width: 100%;
+    max-width: 1440px;
+    margin: 0 auto;
+    margin-top: 50px;
     color: var(--text-1);
 }
