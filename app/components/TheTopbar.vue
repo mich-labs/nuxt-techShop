@@ -7,6 +7,7 @@
                 </div>
                 <div class="topbar__right">
                     <app-social-list :social-routes="socialRoutes" />
+                    <app-theme-switcher />
                 </div>
             </div>
         </app-container>
@@ -38,10 +39,6 @@ const socialRoutes: TSocials = [
     background-color: var(--bg-2);
     border-radius: 20px 20px 0 0;
 
-    transition:
-        color .3s linear,
-        background-color .3s linear;
-
     &__inner {
         padding: 15px 0;
         display: flex;
@@ -53,6 +50,7 @@ const socialRoutes: TSocials = [
     &__right {
         display: flex;
         align-items: center;
+        gap: 15px;
     }
 
     &__social {

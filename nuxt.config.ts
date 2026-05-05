@@ -3,6 +3,7 @@
 export default defineNuxtConfig({
   compatibilityDate: '2026-04-27',
   css: ['~/assets/scss/theme.scss'],
+
   // alias: {
   //   '#types': fileURLToPath(new URL('./types', import.meta.url))
   // },
@@ -11,5 +12,7 @@ export default defineNuxtConfig({
       path: '~/components',
       pathPrefix: false
     }
-  ]
+  ],
+
+  modules: ['@nuxtjs/color-mode']
 })
