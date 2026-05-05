@@ -1,5 +1,6 @@
 <template>
-    <div>Store layout</div>
+    <the-topbar />
+    <the-header />
     <app-page>
         <slot />
     </app-page>
