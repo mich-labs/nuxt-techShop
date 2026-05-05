@@ -54,7 +54,6 @@ const sizeClass = computed(() => {
     &__icon {
         height: 25px;
         width: auto;
-        transition: fill linear .1s;
     }
 
     &--small {

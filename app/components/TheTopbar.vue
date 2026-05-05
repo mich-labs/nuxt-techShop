@@ -5,19 +5,27 @@
                 <div class="topbar__left">
                     <app-nav :routes="topbarRoutes" :icons="false" :capitalize="true" size="small" />
                 </div>
-                <div class="topbar__right"></div>
+                <div class="topbar__right">
+                    <app-social-list :social-routes="socialRoutes" />
+                </div>
             </div>
         </app-container>
     </div>
 </template>
 <script setup lang="ts">
 import type { TRoutes } from '~~/types/routeLinks.type';
+import type { TSocials } from './ui/AppSocialList.vue';
 
 const topbarRoutes: TRoutes = [
     { name: 'about', to: '/about', title: 'о магазине' },
     { name: 'delivery', to: '/delivery', title: 'доставка' },
     { name: 'varanty-payment', to: '/varanty-payment', title: 'гарантия и оплата' },
     { name: 'contacts', to: '/contacts', title: 'контакты' },
+]
+const socialRoutes: TSocials = [
+    { name: 'telegram', to: 'https://web.telegram.org/' },
+    { name: 'viber', to: 'https://www.viber.com/ru/' },
+    { name: 'mail', to: 'https://www.gmail.com/mail/help/intl/ru/about.html?de.' },
 ]
 </script>
 <style scoped lang="scss">

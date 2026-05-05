@@ -13,5 +13,6 @@ const props = defineProps<{
     width: 30px;
     aspect-ratio: 1/1;
     fill: var(--text-1);
+    transition: fill linear .1s;
 }
 </style>
