@@ -5,3 +5,9 @@
         </app-container>
     </main>
 </template>
+
+<style scoped lang="scss">
+.main{
+    min-height: 500px;
+}
+</style>

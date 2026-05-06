@@ -4,4 +4,5 @@
     <app-page>
         <slot />
     </app-page>
+    <the-footer />
 </template>
