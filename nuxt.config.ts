@@ -2,6 +2,23 @@
 
 export default defineNuxtConfig({
   compatibilityDate: '2026-04-27',
+  app: {
+    head: {
+      title: 'Магазин электроники',
+      titleTemplate: '%s | TechShop',
+      htmlAttrs: {
+        lang: 'ru-RU'
+      },
+      meta: [
+        { name: 'description', content: 'Продажа Электроники / Гаджетов ⭐️ Официальная гарантия ✔️ Скидки % ⚡️ Доставка' }
+      ]
+    }
+  },
+  fonts: {
+    families: [
+      { name: 'Ubuntu', weights: [400, 500, 700], styles: ['normal', 'italic'] }
+    ]
+  },
   css: ['~/assets/scss/theme.scss'],
 
   // alias: {
@@ -14,5 +31,5 @@ export default defineNuxtConfig({
     }
   ],
 
-  modules: ['@nuxtjs/color-mode']
+  modules: ['@nuxtjs/color-mode', '@nuxt/content', '@nuxt/fonts']
 })

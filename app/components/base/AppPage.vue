@@ -7,7 +7,8 @@
 </template>
 
 <style scoped lang="scss">
-.main{
+.main {
+    padding-top: 50px;
     min-height: 500px;
 }
 </style>
