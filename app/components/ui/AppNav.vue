@@ -48,10 +48,10 @@ const variantClass = computed(() => {
         transition: color linear .1s;
 
         &:hover {
-            color: var(--hover);
+            color: var(--accent);
 
             .nav__icon {
-                fill: var(--hover);
+                fill: var(--accent);
             }
         }
     }
@@ -71,11 +71,20 @@ const variantClass = computed(() => {
         }
     }
 
+    .router-link-exact-active {
+        color: var(--accent);
+    }
+
     &--variant-page {
         width: 100%;
         background-color: var(--bg-2);
         border-radius: var(--b-r);
         padding: 10px;
+
+        .router-link-exact-active {
+            background-color: var(--ui-3);
+            color: var(--accent);
+        }
 
         .nav {
 

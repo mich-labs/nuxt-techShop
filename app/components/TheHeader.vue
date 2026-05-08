@@ -3,7 +3,9 @@
         <app-container>
             <div class="header__main">
                 <app-stack justify="space-between" align-items="center">
-                    <app-brand />
+                    <NuxtLink to="/" style="color: inherit; text-decoration: none;">
+                        <app-brand />
+                    </NuxtLink>
                     <app-nav :routes="commonRoutes" :capitalize="true" :icons="true" />
                 </app-stack>
             </div>
