@@ -25,6 +25,10 @@ const changeTheme = () => {
     border: solid 1px var(--ui-1);
     border-radius: 20px;
     cursor: pointer;
+    transition: border-color linear var(--t-2);
+    &:hover {
+        border-color: var(--accent);
+    }
 
     &__button {
         position: absolute;

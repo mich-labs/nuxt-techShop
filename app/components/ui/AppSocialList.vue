@@ -34,9 +34,10 @@ const props = defineProps<{
     }
 
     &__link {
+        transition: fill linear var(--t-2);
         &:hover {
             .social__icon {
-                fill: var(--text-1);
+                fill: var(--accent);
             }
         }
     }

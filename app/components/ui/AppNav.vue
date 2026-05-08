@@ -45,7 +45,7 @@ const variantClass = computed(() => {
         font-size: 1.6rem;
 
         cursor: pointer;
-        transition: color linear .1s;
+        transition: color linear var(--t-2);
 
         &:hover {
             color: var(--accent);
@@ -81,6 +81,7 @@ const variantClass = computed(() => {
         border-radius: var(--b-r);
         padding: 10px;
 
+
         .router-link-exact-active {
             background-color: var(--ui-3);
             color: var(--accent);
@@ -113,7 +114,8 @@ const variantClass = computed(() => {
             &__link {
                 padding: 15px 10px;
                 border-bottom: 1px solid var(--ui-1);
-                transition: background-color linear .1s;
+                transition: background-color linear var(--t-2),
+                    color linear var(--t-2);
 
                 &:hover {
                     background-color: var(--ui-3);
