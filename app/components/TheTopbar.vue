@@ -3,32 +3,22 @@
         <app-container>
             <div class="topbar__inner">
                 <div class="topbar__left">
-                    <app-nav :routes="topbarRoutes" :icons="false" :capitalize="true" size="small" />
+                    <app-nav :routes="ABOUT_ROUTES" :icons="false" :capitalize="true" size="small" />
                 </div>
                 <div class="topbar__right">
-                    <app-social-list :social-routes="socialRoutes" />
+                    <app-social-list :social-routes="socialLinks" />
                     <app-theme-switcher />
                 </div>
             </div>
         </app-container>
     </div>
 </template>
-<script setup lang="ts">
-import type { TRoutes } from '~~/types/routeLinks.type';
-import type { TSocials } from './ui/AppSocialList.vue';
 
-const topbarRoutes: TRoutes = [
-    { name: 'about', to: '/about', title: 'о магазине' },
-    { name: 'delivery', to: '/delivery', title: 'доставка' },
-    { name: 'varanty-payment', to: '/varanty-payment', title: 'гарантия и оплата' },
-    { name: 'contacts', to: '/contacts', title: 'контакты' },
-]
-const socialRoutes: TSocials = [
-    { name: 'telegram', to: 'https://web.telegram.org/' },
-    { name: 'viber', to: 'https://www.viber.com/ru/' },
-    { name: 'mail', to: 'https://www.gmail.com/mail/help/intl/ru/about.html?de.' },
-]
+<script setup lang="ts">
+import { ABOUT_ROUTES } from '~/constants/routes/aboutRoutes';
+import { socialLinks } from '~/constants/links/socialLinks';
 </script>
+
 <style scoped lang="scss">
 .topbar {
     width: 100%;
