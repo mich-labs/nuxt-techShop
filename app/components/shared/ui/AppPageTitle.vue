@@ -1,7 +1,7 @@
 <template>
-    <div class="page__title">
+    <h1 class="page__title">
         <slot />
-    </div>
+    </h1>
 </template>
 
 <style scoped lang="scss">
@@ -11,7 +11,6 @@
         color: var(--text-2);
         letter-spacing: .05em;
         font-weight: 700;
-        margin-bottom: 50px;
     }
 }
 </style>
