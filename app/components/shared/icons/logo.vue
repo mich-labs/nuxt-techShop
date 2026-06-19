@@ -3,7 +3,8 @@
         <path
             d="M201.538 348C192.884 349.317 184.022 350 175 350C165.979 350 157.117 349.317 148.463 348H201.538ZM175 0.000244141C271.65 0.000244141 350 78.3504 350 175C350 236.627 318.143 290.811 270 321.99V122.621C270 118.224 266.822 114.47 262.484 113.744L250.5 111.74V91.3469C250.5 78.0485 241.145 66.5842 228.117 63.9163L175.515 53.1458C162.943 50.572 151.022 57.8756 146.965 69.1682L134.015 66.5168C118.514 63.3434 104 75.1866 104 91.009V102.658C102.966 105.048 102.381 107.688 102.365 110.484L101.116 327.886C101.104 330.062 101.44 332.158 102.071 334.122C41.8342 306.469 5.27388e-05 245.622 0 175C0 78.3505 78.3503 0.00044211 175 0.000244141ZM158.301 71.4885C161.292 65.9736 167.621 62.6176 174.307 63.8909L224.047 73.3655C233.566 75.179 240.416 83.5572 240.303 93.2473L240.105 110.003L209 104.803V104.719C209 91.4204 199.645 79.9553 186.617 77.2874L158.301 71.4885ZM182.547 86.7366C190.875 88.3231 197.16 94.9342 198.526 103.052L156.5 96.0266V81.7747L182.547 86.7366ZM115 91.9973C115.001 82.5885 123.564 75.5027 132.807 77.2629L145.5 79.6799V94.1877L125.663 90.8723C121.909 90.2448 118.257 90.7026 115 91.9973Z"
             fill="url(#paint0_radial_284521_24)" />
-        <mask id="mask0_284521_24" style="mask-type:alpha" maskUnits="userSpaceOnUse" x="0" y="0" width="351"
+        <mask 
+        id="mask0_284521_24" style="mask-type:alpha" maskUnits="userSpaceOnUse" x="0" y="0" width="351"
             height="350">
             <circle cx="175" cy="175" r="175" fill="url(#paint1_radial_284521_24)" />
         </mask>
@@ -13,18 +14,21 @@
                 fill="url(#paint2_radial_284521_24)" />
         </g>
         <defs>
-            <radialGradient id="paint0_radial_284521_24" cx="0" cy="0" r="1" gradientUnits="userSpaceOnUse"
+            <radialGradient 
+            id="paint0_radial_284521_24" cx="0" cy="0" r="1" gradientUnits="userSpaceOnUse"
                 gradientTransform="translate(175.001 0.000231746) rotate(90.0002) scale(350)">
                 <stop stop-color="#FF0062" />
                 <stop offset="0.553805" stop-color="#711012" />
                 <stop offset="1" stop-color="#101739" />
             </radialGradient>
-            <radialGradient id="paint1_radial_284521_24" cx="0" cy="0" r="1" gradientUnits="userSpaceOnUse"
+            <radialGradient 
+            id="paint1_radial_284521_24" cx="0" cy="0" r="1" gradientUnits="userSpaceOnUse"
                 gradientTransform="translate(168.501 104) rotate(88.2453) scale(228.607 393.736)">
                 <stop stop-color="#FF0062" />
                 <stop offset="1" stop-color="#F73C3F" />
             </radialGradient>
-            <radialGradient id="paint2_radial_284521_24" cx="0" cy="0" r="1"
+            <radialGradient 
+            id="paint2_radial_284521_24" cx="0" cy="0" r="1"
                 gradientTransform="matrix(2.32002 159.373 -130.435 8.40892 193.847 178.422)"
                 gradientUnits="userSpaceOnUse">
                 <stop stop-color="#FF0062" />

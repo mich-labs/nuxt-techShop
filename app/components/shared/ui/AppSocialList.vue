@@ -1,7 +1,7 @@
 <template>
     <div class="social">
         <ul class="social__list">
-            <li class="social__item" v-for="social in socialRoutes" :key="social.name">
+            <li  v-for="social in socialRoutes" :key="social.name" class="social__item">
                 <a 
                 :href="social.to" 
                 class="social__link" 
@@ -20,7 +20,8 @@ export type TSocials = {
     to: string,
     name: string
 }[]
-const props = defineProps<{
+
+defineProps<{
     socialRoutes: TSocials,
 }>()
 </script>

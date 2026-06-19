@@ -1,10 +1,10 @@
 <template>
     <div class="info">
         <h2 class="info__title">
-            <slot name="title" mdc-unwrap="p"></slot>
+            <slot name="title" mdc-unwrap="p" />
         </h2>
         <ul class="info__list">
-            <slot name="items" mdc-unwrap="ul"></slot>
+            <slot name="items" mdc-unwrap="ul" />
         </ul>
     </div>
 </template>

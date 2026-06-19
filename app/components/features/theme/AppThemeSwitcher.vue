@@ -2,8 +2,8 @@
     <div class="theme-switcher" @click="changeTheme">
         <div class="theme-switcher__button">
             <svg class="theme-switcher__icon">
-                <use xlink:href="/sprite.svg#moon" class="moon"></use>
-                <use xlink:href="/sprite.svg#sun" class="sun"></use>
+                <use xlink:href="/sprite.svg#moon" class="moon" />
+                <use xlink:href="/sprite.svg#sun" class="sun" />
             </svg>
         </div>
     </div>

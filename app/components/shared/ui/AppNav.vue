@@ -1,9 +1,9 @@
 <template>
     <nav :class="['nav', sizeClass, variantClass]">
         <ul class="nav__list">
-            <li class="nav__item" v-for="route in routes" :key="route.name">
+            <li v-for="route in routes" :key="route.name" class="nav__item">
                 <NuxtLink class="nav__link" :to="route.to">
-                    <app-svg :icon="route.name" class="nav__icon" v-if="icons" />
+                    <app-svg v-if="icons" :icon="route.name" class="nav__icon" />
                     {{ capitalize ? toCapitalize(route.title) : route.title }}
                 </NuxtLink>
             </li>

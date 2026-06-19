@@ -1,6 +1,6 @@
 <template>
     <div class="text-block">
-        <h2 class="text-block__title" v-if="$slots.title">
+        <h2 v-if="$slots.title" class="text-block__title">
             <slot name="title" mdc-unwrap="p" />
         </h2>
 

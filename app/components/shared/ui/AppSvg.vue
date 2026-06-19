@@ -1,10 +1,10 @@
 <template>
     <svg class="svg">
-        <use :xlink:href="'/sprite.svg#' + icon"></use>
+        <use :xlink:href="'/sprite.svg#' + icon" />
     </svg>
 </template>
 <script setup lang="ts">
-const props = defineProps<{
+defineProps<{
     icon: string;
 }>();
 </script>
