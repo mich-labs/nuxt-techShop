@@ -31,5 +31,5 @@ export default defineNuxtConfig({
     }
   ],
 
-  modules: ['@nuxtjs/color-mode', '@nuxt/content', '@nuxt/fonts']
+  modules: ['@nuxtjs/color-mode', '@nuxt/content', '@nuxt/fonts', '@nuxt/eslint']
 })
