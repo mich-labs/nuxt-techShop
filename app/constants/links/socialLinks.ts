@@ -1,4 +1,5 @@
-import type { TSocials } from "~/components/ui/AppSocialList.vue";
+import type { TSocials } from "~/components/shared/ui/AppSocialList.vue";
+
 
 export const socialLinks: TSocials = [
     { name: 'telegram', to: 'https://web.telegram.org/' },
