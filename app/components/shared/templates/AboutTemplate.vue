@@ -4,7 +4,7 @@
             <app-nav :routes="ABOUT_ROUTES" :capitalize="true" :icons="false" variant="page" />
         </app-sidebar>
         <div class="about-template__content">
-            <app-page-title v-if="title">
+            <app-page-title v-if="title" class="about-template__title">
                 {{ title }}
             </app-page-title>
             <slot />
@@ -30,6 +30,10 @@ defineProps<{
     &__content {
         flex: 1;
         min-width: 0;
+    }
+
+    &__title {
+        margin-bottom: 30px;
     }
 }
 </style>
