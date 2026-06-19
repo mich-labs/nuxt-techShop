@@ -12,9 +12,13 @@
     --ui-3: #e0e0e0;
     --accent: #fc4c90;
 
-    --from-1: #804546;
-    --from-2: #ff0062;
-    --from-3: #82b8ce;
+    --sky: #82b8ce;
+    --pink: #ff0062;
+    --dark-red: #804546;
+
+    --from-1: var(--dark-red);
+    --from-2: var(--pink);
+    --from-3: var(--sky);
 
     --bg-gradient: radial-gradient(ellipse at center, var(--from-1), transparent),
         radial-gradient(ellipse at top, var(--from-2), transparent),
