@@ -3,16 +3,15 @@
 
         <div ref="emblaRef" class="embla">
             <div class="embla__container">
-                <div 
-                v-for="n in 5" :key="n" class="embla__slide">
-                    <div class="slide__content">Товар {{ n }}</div>
+                <div v-for="(item, idx) in items" :key="idx" class="embla__slide">
+                    <slot name="slide" :item="item" :index="idx" />
                 </div>
             </div>
         </div>
 
         <div class="embla__dots">
             <div 
-                v-for="(_, index) in scrollSnaps" :key="index" :class="[
+            v-for="(_, index) in scrollSnaps" :key="index" :class="[
                 'embla__dot',
                 index === selectedSnap ? 'embla__dot--active' : ''
             ]" @click="scrollTo(index)" />
@@ -21,9 +20,13 @@
     </div>
 </template>
 
-<script setup lang="ts">
+<script setup lang="ts" generic="T">
 import emblaCarouselVue from 'embla-carousel-vue'
 import type { EmblaCarouselType } from 'embla-carousel'
+
+defineProps<{
+    items: T[]
+}>();
 
 const [emblaRef, emblaApi,] = emblaCarouselVue({
     loop: true,
@@ -100,17 +103,5 @@ watch(
         }
     }
 
-}
-
-.slide__content {
-
-    height: 100%;
-    background: var(--ui-1);
-    color: white;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-size: 1.5rem;
-    font-weight: bold;
 }
 </style>
