@@ -10,8 +10,7 @@
         </div>
 
         <div class="embla__dots">
-            <div 
-            v-for="(_, index) in scrollSnaps" :key="index" :class="[
+            <div v-for="(_, index) in scrollSnaps" :key="index" :class="[
                 'embla__dot',
                 index === selectedSnap ? 'embla__dot--active' : ''
             ]" @click="scrollTo(index)" />
@@ -23,15 +22,20 @@
 <script setup lang="ts" generic="T">
 import emblaCarouselVue from 'embla-carousel-vue'
 import type { EmblaCarouselType } from 'embla-carousel'
+import Autoplay from 'embla-carousel-autoplay'
 
-defineProps<{
-    items: T[]
+const { autoplay = false } = defineProps<{
+    items: T[],
+    autoplay?: boolean
 }>();
 
 const [emblaRef, emblaApi,] = emblaCarouselVue({
     loop: true,
     align: 'center',
-})
+
+}, [Autoplay({
+    active: autoplay
+})])
 
 const scrollSnaps = ref<number[]>([])
 const selectedSnap = ref(0)
@@ -45,6 +49,9 @@ watch(
     (api) => {
         if (!api) return
 
+        if (autoplay) {
+            api.plugins().autoplay?.play()
+        }
         setupSnaps(api)
         setActiveSnap(api)
 
