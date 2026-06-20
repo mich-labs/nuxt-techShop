@@ -26,5 +26,7 @@ const element = computed(() => {
 <style scoped lang="scss">
 .app-link{
     cursor: pointer;
+    text-decoration: none;
+    color: inherit;
 }
 </style>
