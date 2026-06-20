@@ -74,8 +74,8 @@ watch(
 
     &__slide {
         min-width: 0;
-        max-height: 350px;
-        aspect-ratio: 1/2;
+        max-height: 450px;
+        aspect-ratio: 2/1;
         flex: 0 0 100%;
         padding-left: 16px;
     }
