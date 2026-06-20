@@ -2,14 +2,12 @@
     <div class="social">
         <ul class="social__list">
             <li  v-for="social in socialRoutes" :key="social.name" class="social__item">
-                <a 
+                <app-link
                 :href="social.to" 
                 class="social__link" 
-                :aria-label="'Перейти в ' + social.name"
-                rel="noopener noreferrer"
-                target="__blank">
+                :aria-label="'Перейти в ' + social.name">
                     <app-svg :icon="social.name" class="social__icon" />
-                </a>
+                </app-link>
             </li>
         </ul>
     </div>
