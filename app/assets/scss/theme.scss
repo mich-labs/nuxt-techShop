@@ -23,10 +23,10 @@
   --bg-gradient: radial-gradient(ellipse at center, var(--from-1), transparent),
     radial-gradient(ellipse at top, var(--from-2), transparent),
     radial-gradient(ellipse at bottom, var(--from-3));
-  --bg-gradient-2:
 
-    radial-gradient(circle at center, transparent 40%, var(--from-1)),
-    radial-gradient(circle at center, transparent 30%, var(--from-2) 80%),
+  --bg-gradient-2:
+    radial-gradient(circle at center, transparent 60%, var(--from-1)),
+    radial-gradient(circle at center, transparent 50%, var(--from-2) 80%),
     radial-gradient(circle at center, transparent 20%, var(--from-3) 90%);
   --b-r: 10px;
 

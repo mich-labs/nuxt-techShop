@@ -16,9 +16,14 @@
   align-items: center;
   flex-direction: column;
   gap: 20px;
-  background: var(--bg-gradient-2);
+  background: var(--ui-3);
+  border-radius: var(--b-r);
+  transition: background linear var(--t-3);
   p {
     letter-spacing: 0.2em;
+  }
+  &:hover {
+    background: var(--bg-gradient-2);
   }
 }
 </style>
