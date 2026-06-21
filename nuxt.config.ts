@@ -27,9 +27,13 @@ export default defineNuxtConfig({
   components: [
     {
       path: '~/components',
-      pathPrefix: false
+      pathPrefix: false,
+      extensions: ['vue']
     }
   ],
+  image: {
+    format: ['webp'],
+  },
 
-  modules: ['@nuxtjs/color-mode', '@nuxt/content', '@nuxt/fonts', '@nuxt/eslint']
+  modules: ['@nuxtjs/color-mode', '@nuxt/content', '@nuxt/fonts', '@nuxt/eslint', '@nuxt/image']
 })

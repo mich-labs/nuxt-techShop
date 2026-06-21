@@ -12,6 +12,7 @@
   "dependencies": {
     "@nuxt/content": "^3.13.0",
     "@nuxt/fonts": "^0.14.0",
+    "@nuxt/image": "^2.0.0",
     "@nuxtjs/color-mode": "^4.0.0",
     "better-sqlite3": "^12.9.0",
     "embla-carousel-autoplay": "^8.6.0",
