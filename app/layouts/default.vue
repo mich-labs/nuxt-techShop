@@ -1,8 +1,10 @@
 <template>
+  <div>
     <the-topbar />
     <the-header />
     <app-page>
-        <slot />
+      <slot />
     </app-page>
     <the-footer />
+  </div>
 </template>
