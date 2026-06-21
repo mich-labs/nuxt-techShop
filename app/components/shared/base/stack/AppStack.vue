@@ -5,7 +5,7 @@
 </template>
 
 <script setup lang="ts">
-import type { TJustifyContent, TStackAlign, TStackDirection } from '~~/types/components/stack.types'
+import type { TJustifyContent, TStackAlign, TStackDirection } from '~/components/shared/base/stack/types'
 const {
     el = 'div',
     gap = 10,
