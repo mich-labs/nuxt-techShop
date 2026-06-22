@@ -1,7 +1,7 @@
 <template>
   <div class="app-wrapper">
     <NuxtLayout>
-      <app-404 v-if="error.status === 404" />
+      <app-error :code="error.status" />
     </NuxtLayout>
   </div>
 </template>
@@ -9,7 +9,7 @@
 <script setup lang="ts">
 import type { NuxtError } from '#app';
 
-const props = defineProps<{
+defineProps<{
   error: NuxtError;
 }>();
 </script>
