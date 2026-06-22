@@ -15,9 +15,9 @@ jobs:
 
       - name: Sync code
         run: |
-          mkdir /var/www/tech-nuxt
+          mkdir -p /var/www/tech-nuxt
           rsync -rlptDz --delete
-          ./ /var/www/tech-nuxt
+          ./ /var/www/tech-nuxt/
 
       - name: Rebuild container
         run: |
