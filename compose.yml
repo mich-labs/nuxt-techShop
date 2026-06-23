@@ -1,0 +1,13 @@
+services:
+  nuxtie:
+    image: nuxtie:latest
+    container_name: nuxtie
+    build: .
+    networks:
+      - www
+    restart: unless-stopped
+    profiles: ["root","www","nuxtie"]
+  
+networks:
+  www:
+    external: true

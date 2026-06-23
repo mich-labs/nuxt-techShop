@@ -1,4 +1,4 @@
-name: Deploy nuxt APP
+name: Deploy nuxt
 
 on:
   push:
@@ -10,19 +10,7 @@ jobs:
     runs-on: [self-hosted, rpi]
 
     steps:
-      - name: Checkout
-        uses: actions/checkout@v6
+      - uses: actions/checkout@v6
 
-      - name: Sync code
-        run: |
-          mkdir -p /var/www/tech-nuxt
-
-          rsync -rlptDz --delete \
-            ./ /var/www/tech-nuxt/
-
-      - name: Rebuild container
-        run: |
-          cd /mnt/docker/docker-compose/nuxt/tech
-
-          docker compose --profile tech build
-          docker compose --profile tech up -d
+      - run: |
+          docker compose up nuxtie -d --build
