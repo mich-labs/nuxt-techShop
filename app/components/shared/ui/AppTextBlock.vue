@@ -1,5 +1,6 @@
 <template>
-  <div class="text-block">
+  <!-- Добавляем динамический класс на основе пропса -->
+  <div :class="['text-block', `text-block--align-${align}`]">
     <h2
       v-if="$slots.title"
       class="text-block__title"
@@ -15,6 +16,12 @@
   </div>
 </template>
 
+<script setup lang="ts">
+const { align = 'center' } = defineProps<{
+  align?: 'center' | 'justify';
+}>();
+</script>
+
 <style scoped lang="scss">
 .text-block {
   &__title {
@@ -25,11 +32,22 @@
   }
   &__content {
     font-size: 1.6rem;
-    text-align: justify;
     line-height: 20px;
     letter-spacing: -0.02em;
   }
+  &--align-center {
+    text-align: center;
+    .text-block__content {
+      text-align: center;
+    }
+  }
 
+  &--align-justify {
+    text-align: inherit;
+    .text-block__content {
+      text-align: justify;
+    }
+  }
   :deep(p:not(:last-child)) {
     margin-bottom: 10px;
   }
