@@ -1,7 +1,10 @@
 <template>
-  <app-stack direction="column" :gap="100">
+  <app-stack
+    direction="column"
+    :gap="100"
+  >
     <the-hero-carousel />
-    <the-tupl-section />
+    <the-banner-section :reverse="true" />
   </app-stack>
 </template>
 <script setup lang="ts"></script>
