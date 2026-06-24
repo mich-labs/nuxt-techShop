@@ -9,18 +9,19 @@
       v-if="img"
       :src="img"
       format="webp"
-      :class="['banner__img', $slots.content ? 'banner__img--abs' : undefined]"
-      :alt="img ? alt : undefined"
+      :class="['banner__img', $slots.content ? 'banner__img--abs' : undefined, `banner__img--${fit}`]"
+      :alt="img ? alt : ''"
     />
   </app-link>
 </template>
 
 <script setup lang="ts">
-defineProps<{
+const { fit = 'cover' } = defineProps<{
   to?: string;
   href?: string;
   img: string;
   alt?: string;
+  fit?: 'cover' | 'contain';
 }>();
 </script>
 
@@ -34,8 +35,13 @@ defineProps<{
   &__img {
     width: 100%;
     height: 100%;
-    object-fit: cover;
 
+    &--contain {
+      object-fit: contain;
+    }
+    &--cover {
+      object-fit: cover;
+    }
     &--abs {
       position: absolute;
       left: 0;
