@@ -20,7 +20,15 @@ export default defineNuxtConfig({
     ]
   },
   css: ['~/assets/scss/theme.scss'],
-
+  vite: {
+    css: {
+      preprocessorOptions: {
+        scss: {
+          additionalData: '@use "~/assets/scss/_breakpoints.mixin.scss" as *;',
+        }
+      }
+    }
+  },
   // alias: {
   //   '#types': fileURLToPath(new URL('./types', import.meta.url))
   // },
