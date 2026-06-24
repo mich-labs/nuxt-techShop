@@ -26,6 +26,7 @@ defineProps<{
 
 <style scoped lang="scss">
 .banner {
+  display: block;
   position: relative;
   width: 100%;
   height: 100%;
