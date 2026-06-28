@@ -42,6 +42,12 @@ export default defineNuxtConfig({
   image: {
     format: ['webp'],
   },
-
-  modules: ['@nuxtjs/color-mode', '@nuxt/content', '@nuxt/fonts', '@nuxt/eslint', '@nuxt/image']
+  strapi: {
+    url: import.meta.env.STRAPI_URL || 'http://localhost:1337',
+    token: import.meta.env.STRAPI_ACCESS_TOKEN || (() => {
+      throw Error('STRAPI_ACCESS_TOKEN is missing')
+    })(),
+    version: 'v5'
+  },
+  modules: ['@nuxtjs/color-mode', '@nuxt/content', '@nuxt/fonts', '@nuxt/eslint', '@nuxt/image', '@nuxtjs/strapi']
 })
