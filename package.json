@@ -14,7 +14,6 @@
     "@nuxt/fonts": "^0.14.0",
     "@nuxt/image": "^2.0.0",
     "@nuxtjs/color-mode": "^4.0.0",
-    "@nuxtjs/strapi": "^2.2.0",
     "better-sqlite3": "^12.9.0",
     "embla-carousel-autoplay": "^8.6.0",
     "embla-carousel-vue": "^8.6.0",
@@ -27,6 +26,7 @@
     "@types/node": "^25.6.0",
     "eslint": "^10.5.0",
     "prettier": "^3.8.4",
-    "sass": "^1.99.0"
+    "sass": "^1.99.0",
+    "strapi-typed-client": "^2.0.1"
   }
 }
