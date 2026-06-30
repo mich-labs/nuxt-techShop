@@ -46,7 +46,7 @@ useSeoMeta({
   title: data.value?.seo?.title,
   description: data.value?.seo?.description,
 });
-const test1231 = data.value?.bannerSection1
+const test1231 = data.value?.bannerSection1;
 type test = typeof data.value;
 interface Itest {
   test1: WidgetsBannerSekcziya & WidgetsBannerSekcziyaPopulateParam;

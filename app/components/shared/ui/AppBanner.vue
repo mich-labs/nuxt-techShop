@@ -16,13 +16,15 @@
 </template>
 
 <script setup lang="ts">
-const { fit = 'cover', isExternal = false } = defineProps<{
+export interface AppBannerProps {
   href: string;
   isExternal?: boolean;
   img: string;
   alt?: string;
   fit?: 'cover' | 'contain';
-}>();
+}
+
+const { fit = 'cover', isExternal = false } = defineProps<AppBannerProps>();
 </script>
 
 <style scoped lang="scss">

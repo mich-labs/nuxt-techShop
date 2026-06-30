@@ -2,7 +2,10 @@
   <app-split :reverse="reverse">
     <template #main>
       <app-banner
-        img="/mocked/iPhone-17-Pro-PNG.png"
+        :img="mainImg.url"
+        :href="link.href"
+        :alt="mainImg.alt"
+        :is-external="link.isExternal"
         fit="contain"
       />
     </template>
@@ -15,19 +18,18 @@
             class="side__svg"
           />
           <app-text-block align="center">
-            <template #title>Apple iphone 17 pro</template>
+            <template #title>{{ title }}</template>
             <template #text>
-              Lorem ipsum dolor sit amet consectetur, adipisicing elit. Molestias ipsum cupiditate perspiciatis!
-              Quisquam explicabo rerum animi, excepturi nulla velit, neque nesciunt culpa beatae minus sapiente sint
-              omnis voluptates corporis debitis! Lorem ipsum dolor sit amet consectetur, adipisicing elit. Molestias
-              ipsum cupiditate perspiciatis! Quisquam explicabo rerum animi, excepturi nulla velit, neque nesciunt culpa
-              beatae minus sapiente sint omnis voluptates corporis debitis!
+              {{ content }}
             </template>
           </app-text-block>
         </div>
 
         <app-banner
-          img="/mocked/iPhone-17-Pro-Camera-Setup-PNG.png"
+          :img="smallImg.url"
+          :alt="smallImg.alt"
+          :href="link.href"
+          :is-external="link.isExternal"
           fit="contain"
         />
       </div>
@@ -35,9 +37,13 @@
   </app-split>
 </template>
 <script setup lang="ts">
-defineProps<{
-  reverse?: boolean;
-}>();
+import type { BannerSectionModel } from './types';
+
+defineProps<
+  {
+    reverse?: boolean;
+  } & BannerSectionModel
+>();
 </script>
 <style scoped lang="scss">
 .side {
