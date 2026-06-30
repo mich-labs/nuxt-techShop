@@ -1,24 +1,24 @@
 <template>
   <app-link
-    :to="to"
     :href="href"
+    :is-external="isExternal"
     class="banner"
   >
     <slot name="content" />
     <NuxtImg
       v-if="img"
       :src="img"
-      format="webp"
-      :class="['banner__img', $slots.content ? 'banner__img--abs' : undefined, `banner__img--${fit}`]"
       :alt="img ? alt : ''"
+      :class="['banner__img', $slots.content ? 'banner__img--abs' : undefined, `banner__img--${fit}`]"
+      format="webp"
     />
   </app-link>
 </template>
 
 <script setup lang="ts">
-const { fit = 'cover' } = defineProps<{
-  to?: string;
-  href?: string;
+const { fit = 'cover', isExternal = false } = defineProps<{
+  href: string;
+  isExternal?: boolean;
   img: string;
   alt?: string;
   fit?: 'cover' | 'contain';
