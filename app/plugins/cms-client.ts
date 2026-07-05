@@ -4,8 +4,8 @@ export default defineNuxtPlugin((nuxtApp) => {
     const config = useRuntimeConfig();
 
     const client = new StrapiClient({
-        baseURL: config.cmsUrl,
-        token: config.cmsAccessToken
+        baseURL: config.public.cmsUrl,
+        token: config.public.cmsAccessToken
     })
     return {
         provide: {

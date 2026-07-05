@@ -1,11 +1,12 @@
 declare module 'nuxt/schema' {
-    interface RuntimeConfig {
+    // interface RuntimeConfig {
+
+
+    // }
+    interface PublicRuntimeConfig {
         cmsUrl: string;
         cmsAccessToken: string;
     }
-    //   interface PublicRuntimeConfig {
-    //     apiBase: string
-    //   }
 }
 
 export { }
