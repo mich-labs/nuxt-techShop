@@ -19,7 +19,6 @@ defineProps<{
 <style scoped lang="scss">
 .split {
   display: grid;
-  outline: 1px solid red;
   gap: 30px;
   justify-items: center;
   grid-template-rows: minmax(auto, 550px);
