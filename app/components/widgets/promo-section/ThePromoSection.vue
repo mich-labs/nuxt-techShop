@@ -2,10 +2,10 @@
   <app-split :reverse="reverse">
     <template #main>
       <app-banner
-        :img="mainImg.url"
-        :href="link.href"
-        :alt="mainImg.alt"
-        :is-external="link.isExternal"
+        :img="data.mainImg.url"
+        :href="data.link.href"
+        :alt="data.mainImg.alt"
+        :is-external="data.link.isExternal"
         fit="contain"
       />
     </template>
@@ -18,18 +18,18 @@
             class="side__svg"
           />
           <app-text-block align="center">
-            <template #title>{{ title }}</template>
+            <template #title>{{ data.title }}</template>
             <template #text>
-              {{ content }}
+              {{ data.content }}
             </template>
           </app-text-block>
         </div>
 
         <app-banner
-          :img="smallImg.url"
-          :alt="smallImg.alt"
-          :href="link.href"
-          :is-external="link.isExternal"
+          :img="data.smallImg.url"
+          :alt="data.smallImg.alt"
+          :href="data.link.href"
+          :is-external="data.link.isExternal"
           fit="contain"
         />
       </div>
@@ -37,13 +37,12 @@
   </app-split>
 </template>
 <script setup lang="ts">
-import type { BannerSectionModel } from './types';
+import type { PromoSectionModel } from './types';
 
-defineProps<
-  {
-    reverse?: boolean;
-  } & BannerSectionModel
->();
+const { reverse = false } = defineProps<{
+  reverse?: boolean;
+  data: PromoSectionModel;
+}>();
 </script>
 <style scoped lang="scss">
 .side {
@@ -67,7 +66,9 @@ defineProps<
 }
 @include device(md) {
   .side {
-    grid-template-rows: auto minmax(auto, 200px);
+    height: auto;
+    grid-template-rows: auto auto;
+    gap: 30px;
   }
 }
 </style>
