@@ -1,4 +1,4 @@
-export declare const SCHEMA_HASH = "cc335f0f06c1c94113a6f48ce0c901af3371c58d09c253fa973d9ee65ef9b221";
+export declare const SCHEMA_HASH = "8923a0678e8276176a4616b00ba522dca971dd6405465ac4b3f78668d9555fe6";
 export declare const GENERATOR_VERSION = "2.0.1";
 import type { Glavnaya, GlavnayaGetPayload, GlavnayaPopulateParam, GlavnayaCreateInput, GlavnayaUpdateInput, Kontakty, KontaktyGetPayload, KontaktyPopulateParam, KontaktyCreateInput, KontaktyUpdateInput, ONas, ONasGetPayload, ONasPopulateParam, ONasCreateInput, ONasUpdateInput, Permission, PermissionGetPayload, PermissionPopulateParam, PermissionCreateInput, PermissionUpdateInput, Role, RoleGetPayload, RolePopulateParam, RoleCreateInput, RoleUpdateInput, User, UserGetPayload, UserPopulateParam, UserCreateInput, UserUpdateInput, MediaFile } from './types.js';
 import type { GlavnayaFilters, KontaktyFilters, ONasFilters, PermissionFilters, RoleFilters, UserFilters } from './types.js';

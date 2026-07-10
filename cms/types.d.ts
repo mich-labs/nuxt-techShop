@@ -207,7 +207,7 @@ export interface SharedTekstovyjBlok {
     title: string | null;
     content: BlocksContent;
 }
-export interface WidgetsBannerSekcziya {
+export interface WidgetsPromoSekcziya {
     id: number;
     title: string;
     /** @maxLength 350 */
@@ -275,8 +275,8 @@ export interface SharedTekstovyjBlokUpdateInput {
     title?: string | null;
     content?: BlocksContent;
 }
-/** Create input for WidgetsBannerSekcziya */
-export interface WidgetsBannerSekcziyaCreateInput {
+/** Create input for WidgetsPromoSekcziya */
+export interface WidgetsPromoSekcziyaCreateInput {
     id?: number;
     title: string;
     /** @maxLength 350 */
@@ -285,8 +285,8 @@ export interface WidgetsBannerSekcziyaCreateInput {
     smallImage?: MediaInput;
     link?: SharedSsylkaCreateInput | null;
 }
-/** Update input for WidgetsBannerSekcziya */
-export interface WidgetsBannerSekcziyaUpdateInput {
+/** Update input for WidgetsPromoSekcziya */
+export interface WidgetsPromoSekcziyaUpdateInput {
     id?: number;
     title?: string;
     /** @maxLength 350 */
@@ -301,7 +301,7 @@ export interface WidgetsSlajderCreateInput {
     title: string;
     content: string;
     button?: SharedSsylkaCreateInput | null;
-    banner?: SharedBannerCreateInput[] | null;
+    banners?: SharedBannerCreateInput[] | null;
 }
 /** Update input for WidgetsSlajder */
 export interface WidgetsSlajderUpdateInput {
@@ -309,7 +309,7 @@ export interface WidgetsSlajderUpdateInput {
     title?: string;
     content?: string;
     button?: SharedSsylkaUpdateInput | null;
-    banner?: SharedBannerUpdateInput[] | null;
+    banners?: SharedBannerUpdateInput[] | null;
 }
 export type SharedTekstovyjBlokDzCreateInput = SharedTekstovyjBlokCreateInput & {
     __component: 'shared.tekstovyj-blok';
@@ -392,8 +392,8 @@ export interface GlavnayaCreateInput {
     localizations?: RelationInput;
     seo?: SharedSeoCreateInput | null;
     slider?: WidgetsSlajderCreateInput | null;
-    bannerSection1?: WidgetsBannerSekcziyaCreateInput | null;
-    bannerSection2?: WidgetsBannerSekcziyaCreateInput | null;
+    promoSection1?: WidgetsPromoSekcziyaCreateInput | null;
+    promoSection2?: WidgetsPromoSekcziyaCreateInput | null;
 }
 /** Update input for Glavnaya */
 export interface GlavnayaUpdateInput {
@@ -402,8 +402,8 @@ export interface GlavnayaUpdateInput {
     localizations?: RelationInput;
     seo?: SharedSeoUpdateInput | null;
     slider?: WidgetsSlajderUpdateInput | null;
-    bannerSection1?: WidgetsBannerSekcziyaUpdateInput | null;
-    bannerSection2?: WidgetsBannerSekcziyaUpdateInput | null;
+    promoSection1?: WidgetsPromoSekcziyaUpdateInput | null;
+    promoSection2?: WidgetsPromoSekcziyaUpdateInput | null;
 }
 /** Create input for Kontakty */
 export interface KontaktyCreateInput {
@@ -509,7 +509,7 @@ export type SharedBannerPopulateParam = {
         fields?: (keyof SharedSsylka & string)[];
     };
 };
-export type WidgetsBannerSekcziyaPopulateParam = {
+export type WidgetsPromoSekcziyaPopulateParam = {
     mainImage?: true | {
         fields?: (keyof MediaFile & string)[];
     };
@@ -524,7 +524,7 @@ export type WidgetsSlajderPopulateParam = {
     button?: true | {
         fields?: (keyof SharedSsylka & string)[];
     };
-    banner?: true | {
+    banners?: true | {
         fields?: (keyof SharedBanner & string)[];
         populate?: SharedBannerPopulateParam | (keyof SharedBannerPopulateParam & string)[] | '*';
     };
@@ -545,13 +545,13 @@ export type GlavnayaPopulateParam = {
         fields?: (keyof WidgetsSlajder & string)[];
         populate?: WidgetsSlajderPopulateParam | (keyof WidgetsSlajderPopulateParam & string)[] | '*';
     };
-    bannerSection1?: true | {
-        fields?: (keyof WidgetsBannerSekcziya & string)[];
-        populate?: WidgetsBannerSekcziyaPopulateParam | (keyof WidgetsBannerSekcziyaPopulateParam & string)[] | '*';
+    promoSection1?: true | {
+        fields?: (keyof WidgetsPromoSekcziya & string)[];
+        populate?: WidgetsPromoSekcziyaPopulateParam | (keyof WidgetsPromoSekcziyaPopulateParam & string)[] | '*';
     };
-    bannerSection2?: true | {
-        fields?: (keyof WidgetsBannerSekcziya & string)[];
-        populate?: WidgetsBannerSekcziyaPopulateParam | (keyof WidgetsBannerSekcziyaPopulateParam & string)[] | '*';
+    promoSection2?: true | {
+        fields?: (keyof WidgetsPromoSekcziya & string)[];
+        populate?: WidgetsPromoSekcziyaPopulateParam | (keyof WidgetsPromoSekcziyaPopulateParam & string)[] | '*';
     };
 };
 export type KontaktyPopulateParam = {
@@ -646,9 +646,9 @@ export type SharedBannerGetPayload<P extends {
     image?: 'image' extends keyof Pop ? _ApplyFields<MediaFile, MediaFile, Pop['image']> : never;
     link?: 'link' extends keyof Pop ? _ApplyFields<SharedSsylka, SharedSsylka, Pop['link']> : never;
 } : {});
-export type WidgetsBannerSekcziyaGetPayload<P extends {
+export type WidgetsPromoSekcziyaGetPayload<P extends {
     populate?: unknown;
-} = {}> = WidgetsBannerSekcziya & (P extends {
+} = {}> = WidgetsPromoSekcziya & (P extends {
     populate: infer Pop;
 } ? Pop extends '*' | true ? {
     mainImage?: MediaFile;
@@ -669,17 +669,17 @@ export type WidgetsSlajderGetPayload<P extends {
     populate: infer Pop;
 } ? Pop extends '*' | true ? {
     button?: SharedSsylka;
-    banner?: SharedBanner[];
+    banners?: SharedBanner[];
 } : Pop extends readonly (infer _)[] ? {
     button?: 'button' extends Pop[number] ? SharedSsylka : never;
-    banner?: 'banner' extends Pop[number] ? SharedBanner[] : never;
+    banners?: 'banners' extends Pop[number] ? SharedBanner[] : never;
 } : {
     button?: 'button' extends keyof Pop ? _ApplyFields<SharedSsylka, SharedSsylka, Pop['button']> : never;
-    banner?: 'banner' extends keyof Pop ? _ApplyFields<Pop['banner'] extends {
+    banners?: 'banners' extends keyof Pop ? _ApplyFields<Pop['banners'] extends {
         populate: infer NestedPop;
     } ? SharedBannerGetPayload<{
         populate: NestedPop;
-    }> : SharedBanner, SharedBanner, Pop['banner']>[] : never;
+    }> : SharedBanner, SharedBanner, Pop['banners']>[] : never;
 } : {});
 export type GlavnayaGetPayload<P extends {
     populate?: unknown;
@@ -689,14 +689,14 @@ export type GlavnayaGetPayload<P extends {
     localizations?: Glavnaya[];
     seo?: SharedSeo;
     slider?: WidgetsSlajder;
-    bannerSection1?: WidgetsBannerSekcziya;
-    bannerSection2?: WidgetsBannerSekcziya;
+    promoSection1?: WidgetsPromoSekcziya;
+    promoSection2?: WidgetsPromoSekcziya;
 } : Pop extends readonly (infer _)[] ? {
     localizations?: 'localizations' extends Pop[number] ? Glavnaya[] : never;
     seo?: 'seo' extends Pop[number] ? SharedSeo : never;
     slider?: 'slider' extends Pop[number] ? WidgetsSlajder : never;
-    bannerSection1?: 'bannerSection1' extends Pop[number] ? WidgetsBannerSekcziya : never;
-    bannerSection2?: 'bannerSection2' extends Pop[number] ? WidgetsBannerSekcziya : never;
+    promoSection1?: 'promoSection1' extends Pop[number] ? WidgetsPromoSekcziya : never;
+    promoSection2?: 'promoSection2' extends Pop[number] ? WidgetsPromoSekcziya : never;
 } : {
     localizations?: 'localizations' extends keyof Pop ? _ApplyFields<Pop['localizations'] extends {
         populate: infer NestedPop;
@@ -709,16 +709,16 @@ export type GlavnayaGetPayload<P extends {
     } ? WidgetsSlajderGetPayload<{
         populate: NestedPop;
     }> : WidgetsSlajder, WidgetsSlajder, Pop['slider']> : never;
-    bannerSection1?: 'bannerSection1' extends keyof Pop ? _ApplyFields<Pop['bannerSection1'] extends {
+    promoSection1?: 'promoSection1' extends keyof Pop ? _ApplyFields<Pop['promoSection1'] extends {
         populate: infer NestedPop;
-    } ? WidgetsBannerSekcziyaGetPayload<{
+    } ? WidgetsPromoSekcziyaGetPayload<{
         populate: NestedPop;
-    }> : WidgetsBannerSekcziya, WidgetsBannerSekcziya, Pop['bannerSection1']> : never;
-    bannerSection2?: 'bannerSection2' extends keyof Pop ? _ApplyFields<Pop['bannerSection2'] extends {
+    }> : WidgetsPromoSekcziya, WidgetsPromoSekcziya, Pop['promoSection1']> : never;
+    promoSection2?: 'promoSection2' extends keyof Pop ? _ApplyFields<Pop['promoSection2'] extends {
         populate: infer NestedPop;
-    } ? WidgetsBannerSekcziyaGetPayload<{
+    } ? WidgetsPromoSekcziyaGetPayload<{
         populate: NestedPop;
-    }> : WidgetsBannerSekcziya, WidgetsBannerSekcziya, Pop['bannerSection2']> : never;
+    }> : WidgetsPromoSekcziya, WidgetsPromoSekcziya, Pop['promoSection2']> : never;
 } : {});
 export type KontaktyGetPayload<P extends {
     populate?: unknown;

@@ -1,7 +1,7 @@
 /* eslint-disable */
 // Auto-generated Strapi API client
 // Do not edit manually
-export const SCHEMA_HASH = 'cc335f0f06c1c94113a6f48ce0c901af3371c58d09c253fa973d9ee65ef9b221';
+export const SCHEMA_HASH = '8923a0678e8276176a4616b00ba522dca971dd6405465ac4b3f78668d9555fe6';
 export const GENERATOR_VERSION = '2.0.1';
 /**
  * Error thrown for non-2xx responses from Strapi.
