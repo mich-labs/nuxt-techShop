@@ -2,16 +2,17 @@
   <div class="carousel">
     <div class="carousel__slider-holder">
       <app-slider
-        v-if="data.length > 0"
-        :items="data"
+        v-if="data.banners.length > 0"
+        :items="data.banners"
         :autoplay="true"
         :dots="true"
       >
         <template #slide="{ item }">
           <app-banner
-            :to="item.href"
-            :img="item.img"
-            :alt="item.alt"
+            :href="item.link.href"
+            :is-external="item.link.isExternal"
+            :img="item.img.url"
+            :alt="item.img.alt"
             class="carousel__banner"
           />
         </template>
@@ -19,15 +20,16 @@
       <app-placeholder v-else />
     </div>
     <div class="carousel__block-holder">
-      <app-page-title> Технологии. Эстетика. Комфорт. </app-page-title>
+      <app-page-title>{{ data.title }}</app-page-title>
       <app-text-block style="letter-spacing: 0.2em">
         <template #text>
-          <p>Листайте и выбирайте оригинальную технику с официальной гарантией.</p>
+          <p>{{ data.content }}</p>
         </template>
       </app-text-block>
 
       <app-link
-        to="/products"
+        :href="data.sectionLink.href"
+        :is-external="data.sectionLink.isExternal"
         class="carousel__btn"
       >
         Перейти
@@ -37,22 +39,24 @@
 </template>
 
 <script setup lang="ts">
-import { fetchHeroBanners } from './banner';
+import type { CarouselSectionModel } from './types';
 
-const { data, status } = await fetchHeroBanners();
-
-console.log('statuslog', status.value);
+defineProps<{
+  data: CarouselSectionModel;
+}>();
 </script>
 
 <style scoped lang="scss">
 .carousel {
   display: flex;
+  flex-wrap: wrap;
   justify-content: space-between;
   align-items: flex-start;
   gap: 30px;
 
   &__slider-holder {
     flex: 2;
+  
     min-width: 0;
   }
 
@@ -81,5 +85,15 @@ console.log('statuslog', status.value);
       background-color: var(--accent);
     }
   }
+}
+
+@include device(md){
+.carousel{
+  flex-direction: column;
+  align-items: stretch;
+  &__block-holder{
+    gap: 20px;
+  }
+}
 }
 </style>
