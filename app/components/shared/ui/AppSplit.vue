@@ -40,7 +40,7 @@ defineProps<{
 @include device(md) {
   .split {
     grid-template-columns: 1fr;
-    grid-template-rows: 1fr minmax(auto, 350px);
+    grid-template-rows: auto auto;
   }
 }
 </style>
