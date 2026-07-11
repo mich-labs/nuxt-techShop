@@ -3,7 +3,8 @@
         <ul class="social__list">
             <li  v-for="social in socialRoutes" :key="social.name" class="social__item">
                 <app-link
-                :href="social.to" 
+                :href="social.to"
+                :is-external="true" 
                 class="social__link" 
                 :aria-label="'Перейти в ' + social.name">
                     <app-svg :icon="social.name" class="social__icon" />

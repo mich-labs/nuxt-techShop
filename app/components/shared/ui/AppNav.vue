@@ -2,7 +2,7 @@
     <nav :class="['nav', sizeClass, variantClass]">
         <ul class="nav__list">
             <li v-for="route in routes" :key="route.name" class="nav__item">
-                <app-link class="nav__link" :to="route.to">
+                <app-link class="nav__link" :href="route.to">
                     <app-svg v-if="icons" :icon="route.name" class="nav__icon" />
                     {{ capitalize ? toCapitalize(route.title) : route.title }}
                 </app-link>
