@@ -20,12 +20,10 @@
       <app-placeholder v-else />
     </div>
     <div class="carousel__block-holder">
-      <app-page-title>{{ data.title }}</app-page-title>
-      <app-text-block style="letter-spacing: 0.2em">
-        <template #text>
-          <p>{{ data.content }}</p>
-        </template>
-      </app-text-block>
+      <h2 class="carousel__title">{{ data.title }}</h2>
+      <div class="carousel__text">
+        <p>{{ data.content }}</p>
+      </div>
 
       <app-link
         :href="data.sectionLink.href"
@@ -56,7 +54,7 @@ defineProps<{
 
   &__slider-holder {
     flex: 2;
-  
+
     min-width: 0;
   }
 
@@ -74,6 +72,19 @@ defineProps<{
     gap: 40px;
   }
 
+  &__title {
+    font-size: 4rem;
+    font-weight: 700;
+    letter-spacing: 0.05em;
+  }
+
+  &__text {
+    font-size: 1.6rem;
+    line-height: 20px;
+    letter-spacing: 0.2em;
+    text-align: justify;
+  }
+
   &__btn {
     padding: 15px;
     background-color: var(--pink);
@@ -87,13 +98,13 @@ defineProps<{
   }
 }
 
-@include device(md){
-.carousel{
-  flex-direction: column;
-  align-items: stretch;
-  &__block-holder{
-    gap: 20px;
+@include device(md) {
+  .carousel {
+    flex-direction: column;
+    align-items: stretch;
+    &__block-holder {
+      gap: 20px;
+    }
   }
-}
 }
 </style>
