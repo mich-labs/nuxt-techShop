@@ -1,6 +1,7 @@
 <template>
   <app-stack
     direction="column"
+    class="app-stack--home"
     :gap="100"
   >
     <the-hero-carousel
@@ -26,3 +27,10 @@ useSeoMeta({
   description: data.seo.description,
 });
 </script>
+<style scoped lang="scss">
+@include device('md') {
+  .app-stack--home {
+    --stack-gap: 50px;
+  }
+}
+</style>
