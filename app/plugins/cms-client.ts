@@ -1,10 +1,11 @@
 import { StrapiClient } from '~~/cms';
 
+
 export default defineNuxtPlugin((nuxtApp) => {
     const config = useRuntimeConfig();
-
+    const baseUrl = import.meta.server ? config.cmsUrl : config.public.cmsUrl;
     const client = new StrapiClient({
-        baseURL: config.public.cmsUrl,
+        baseURL: baseUrl,
         token: config.public.cmsAccessToken
     })
     return {

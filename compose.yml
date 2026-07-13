@@ -4,9 +4,6 @@ services:
     container_name: nuxtie
     build:
       context: .
-      args:
-        - STRAPI_URL=${STRAPI_URL}
-        - STRAPI_PUBLIC_ACCESS_TOKEN=${STRAPI_PUBLIC_ACCESS_TOKEN}
     networks:
       - www
     restart: unless-stopped
