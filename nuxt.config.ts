@@ -43,11 +43,10 @@ export default defineNuxtConfig({
     format: ['webp'],
   },
   runtimeConfig: {
+    cmsUrl: process.env.NUXT_CMS_URL,
     public: {
-      cmsUrl: process.env.STRAPI_URL,
-      cmsAccessToken: process.env.STRAPI_PUBLIC_ACCESS_TOKEN || (() => {
-        throw Error('STRAPI_PUBLIC_ACCESS_TOKEN is missing')
-      })()
+      cmsUrl: process.env.NUXT_PUBLIC_CMS_URL,
+      cmsAccessToken: process.env.NUXT_PUBLIC_CMS_ACCESS_TOKEN
     }
   },
   modules: ['@nuxtjs/color-mode', '@nuxt/content', '@nuxt/fonts', '@nuxt/eslint', '@nuxt/image']
