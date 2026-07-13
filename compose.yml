@@ -2,13 +2,17 @@ services:
   nuxtie:
     image: nuxtie:latest
     container_name: nuxtie
-    build: .
+    build:
+      context: .
+      args:
+        - STRAPI_URL=${STRAPI_URL}
+        - STRAPI_PUBLIC_ACCESS_TOKEN=${STRAPI_PUBLIC_ACCESS_TOKEN}
     networks:
       - www
     restart: unless-stopped
-    profiles: ["root","www","nuxtie"]
+    profiles: ['root', 'www', 'nuxtie']
     env_file: .env
-  
+
 networks:
   www:
     external: true
