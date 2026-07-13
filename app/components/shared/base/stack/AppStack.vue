@@ -1,37 +1,43 @@
 <template>
-    <component :is="el" class="app-stack" :style="style">
-        <slot />
-    </component>
+  <component
+    :is="el"
+    class="app-stack"
+    :style="style"
+  >
+    <slot />
+  </component>
 </template>
 
 <script setup lang="ts">
-import type { TJustifyContent, TStackAlign, TStackDirection } from '~/components/shared/base/stack/types'
+import type { TJustifyContent, TStackAlign, TStackDirection } from '~/components/shared/base/stack/types';
+
 const {
-    el = 'div',
-    gap = 10,
-    direction = 'row',
-    alignItems = 'normal',
-    justify = 'normal'
+  el = 'div',
+  gap = 10,
+  direction = 'row',
+  alignItems = 'normal',
+  justify = 'normal',
 } = defineProps<{
-    el?: 'ul' | 'div'
-    gap?: number;
-    direction?: TStackDirection;
-    alignItems?: TStackAlign;
-    justify?: TJustifyContent;
+  el?: 'ul' | 'div';
+  gap?: number;
+  direction?: TStackDirection;
+  alignItems?: TStackAlign;
+  justify?: TJustifyContent;
 }>();
 
 const style = computed(() => {
-    return {
-        flexDirection: direction,
-        gap: gap + 'px',
-        alignItems: alignItems,
-        justifyContent: justify
-    };
-})
+  return {
+    flexDirection: direction,
+    '--stack-gap-default': gap + 'px',
+    alignItems: alignItems,
+    justifyContent: justify,
+  };
+});
 </script>
 
 <style lang="scss" scoped>
 .app-stack {
-    display: flex;
+  display: flex;
+  gap: var(--stack-gap, var(--stack-gap-default));
 }
 </style>

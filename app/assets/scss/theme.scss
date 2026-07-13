@@ -66,3 +66,9 @@ body {
 
   background: var(--bg-gradient);
 }
+
+@include device('xl') {
+  body {
+    margin-top: 0;
+  }
+}

@@ -20,7 +20,15 @@ export default defineNuxtConfig({
     ]
   },
   css: ['~/assets/scss/theme.scss'],
-
+  vite: {
+    css: {
+      preprocessorOptions: {
+        scss: {
+          additionalData: '@use "~/assets/scss/_breakpoints.mixin.scss" as *;',
+        }
+      }
+    }
+  },
   // alias: {
   //   '#types': fileURLToPath(new URL('./types', import.meta.url))
   // },
@@ -34,6 +42,13 @@ export default defineNuxtConfig({
   image: {
     format: ['webp'],
   },
-
+  runtimeConfig: {
+    public: {
+      cmsUrl: process.env.STRAPI_URL,
+      cmsAccessToken: process.env.STRAPI_PUBLIC_ACCESS_TOKEN || (() => {
+        throw Error('STRAPI_PUBLIC_ACCESS_TOKEN is missing')
+      })()
+    }
+  },
   modules: ['@nuxtjs/color-mode', '@nuxt/content', '@nuxt/fonts', '@nuxt/eslint', '@nuxt/image']
 })
