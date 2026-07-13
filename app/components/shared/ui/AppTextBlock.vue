@@ -1,14 +1,10 @@
 <template>
-  <!-- Добавляем динамический класс на основе пропса -->
   <div :class="['text-block', `text-block--align-${align}`]">
     <h2
       v-if="$slots.title"
       class="text-block__title"
     >
-      <slot
-        name="title"
-        mdc-unwrap="p"
-      />
+      <slot name="title" />
     </h2>
     <div class="text-block__content">
       <slot name="text" />
@@ -17,7 +13,7 @@
 </template>
 
 <script setup lang="ts">
-const { align = 'center' } = defineProps<{
+const { align = 'justify' } = defineProps<{
   align?: 'center' | 'justify';
 }>();
 </script>
@@ -30,24 +26,22 @@ const { align = 'center' } = defineProps<{
     letter-spacing: 0.05em;
     margin-bottom: 20px;
   }
+
   &__content {
     font-size: 1.6rem;
     line-height: 20px;
     letter-spacing: -0.02em;
   }
-  &--align-center {
+
+  &--align-center &__content,
+  &--align-center &__title {
     text-align: center;
-    .text-block__content {
-      text-align: center;
-    }
   }
 
-  &--align-justify {
-    text-align: inherit;
-    .text-block__content {
-      text-align: justify;
-    }
+  &--align-justify &__content {
+    text-align: justify;
   }
+
   :deep(p:not(:last-child)) {
     margin-bottom: 10px;
   }
