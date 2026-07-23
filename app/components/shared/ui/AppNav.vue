@@ -29,7 +29,7 @@
 
 <script setup lang="ts">
 import toCapitalize from '~/utils/capitalize';
-import type { TRoutes } from '~~/types/routeLinks.type';
+import type { TRoutes } from '~/components/shared/lib/types/routeLinks.type';
 const {
   capitalize = false,
   size,

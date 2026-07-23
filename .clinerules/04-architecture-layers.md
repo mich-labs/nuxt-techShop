@@ -4,13 +4,18 @@
 
 ## Слои (сверху вниз)
 
-`app/pages` (нативный Nuxt-роутинг) → `widgets` → `entities` → `shared`.
+`app/pages` (нативный Nuxt-роутинг) → `widgets` → `features` → `entities` → `shared`.
 
 Правило импорта: слой не может импортировать вышестоящий слой или другой слайс своего же уровня.
 
 - `entities` импортирует только `shared`. Не импортирует другую `entity` или `widget`.
-- `widgets` импортирует `entities` и `shared`. Не импортирует другой `widget` напрямую (композиция виджетов происходит на уровне `pages`).
-- `shared` не импортирует ничего из `entities`/`widgets` — это низлежащий, безусловный слой (UI-примитивы, лишённые домена: `AppLink`, `AppBanner`, `AppStack` и т.п., плюс `shared/lib` — переиспользуемые чистые хелперы вроде `mapLink`, `getMediaUrl`).
+- `features` импортирует `entities` и `shared`. Не импортирует `widgets` или `pages`.
+- `widgets` импортирует `features`, `entities` и `shared`. Не импортирует другой `widget` напрямую (композиция виджетов происходит на уровне `pages`).
+- `shared` не импортирует ничего из `entities`/`features`/`widgets` — это низлежащий, безусловный слой (UI-примитивы, лишённые домена: `AppLink`, `AppBanner`, `AppStack` и т.п., плюс `shared/lib` — переиспользуемые чистые хелперы вроде `mapLink`, `getMediaUrl`).
+
+## `features/*`
+
+Модули, реализующие конкретные пользовательские действия. Содержат: компоненты, хуки и логику, которая выполняет задачу для пользователя (например авторизацию, добавление товара в корзину, переключение темы). `features` композиционно собираются из `entities` и `shared`, но не из других `features`. Пример: `features/theme/AppThemeSwitcher.vue`.
 
 ## `app/pages/*.vue`
 

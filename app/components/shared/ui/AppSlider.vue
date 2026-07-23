@@ -60,8 +60,8 @@ const scrollSnaps = ref<number[]>([]);
 const selectedSnap = ref(0);
 
 const scrollTo = (index: number) => emblaApi.value?.scrollTo(index);
-const setupSnaps = (emblaApi: EmblaCarouselType) => (scrollSnaps.value = emblaApi.scrollSnapList());
-const setActiveSnap = (emblaApi: EmblaCarouselType) => (selectedSnap.value = emblaApi.selectedScrollSnap());
+const setupSnaps = (api: EmblaCarouselType) => (scrollSnaps.value = api.scrollSnapList());
+const setActiveSnap = (api: EmblaCarouselType) => (selectedSnap.value = api.selectedScrollSnap());
 
 watch(
   emblaApi,
@@ -80,6 +80,16 @@ watch(
   },
   { immediate: true },
 );
+
+onUnmounted(() => {
+  const api = emblaApi.value;
+  if (!api) return;
+
+  api.off('reInit', setupSnaps);
+  api.off('reInit', setActiveSnap);
+  api.off('select', setActiveSnap);
+  api.plugins().autoplay?.stop();
+});
 </script>
 
 <style scoped lang="scss">

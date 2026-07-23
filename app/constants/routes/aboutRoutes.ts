@@ -1,4 +1,4 @@
-import type { TRoutes } from "~~/types/routeLinks.type"
+import type { TRoutes } from '~/components/shared/lib/types/routeLinks.type';
 
 
 export const ABOUT_ROUTES: TRoutes = [
