@@ -1,7 +1,7 @@
 import { StrapiClient } from '~~/cms';
 
 
-export default defineNuxtPlugin((nuxtApp) => {
+export default defineNuxtPlugin(() => {
     const config = useRuntimeConfig();
     const baseUrl = import.meta.server ? config.cmsUrl : config.public.cmsUrl;
     const client = new StrapiClient({

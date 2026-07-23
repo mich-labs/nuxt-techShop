@@ -1,5 +1,9 @@
 <template>
-    <div class="theme-switcher" @click="changeTheme">
+    <div
+        class="theme-switcher"
+        :class="{ 'theme-switcher--light': colorMode.value === 'light' }"
+        @click="changeTheme"
+    >
         <div class="theme-switcher__button">
             <svg class="theme-switcher__icon">
                 <use xlink:href="/sprite.svg#moon" class="moon" />
@@ -9,14 +13,14 @@
     </div>
 </template>
 
-<script setup>
+<script setup lang="ts">
 const colorMode = useColorMode();
 const changeTheme = () => {
     colorMode.preference = colorMode.value === 'dark' ? 'light' : 'dark';
 }
 </script>
 
-<style lang="scss">
+<style scoped lang="scss">
 .theme-switcher {
     position: relative;
     width: 40px;
@@ -59,18 +63,18 @@ const changeTheme = () => {
         height: 12px;
         fill: var(--text-1);
     }
-}
 
-.light {
-    .theme-switcher__button {
-        transform: translateX(-18px);
+    &--light {
+        .theme-switcher__button {
+            transform: translateX(-18px);
 
-        .moon {
-            display: none;
-        }
+            .moon {
+                display: none;
+            }
 
-        .sun {
-            display: block;
+            .sun {
+                display: block;
+            }
         }
     }
 }

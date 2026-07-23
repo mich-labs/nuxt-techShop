@@ -8,7 +8,7 @@
     <NuxtImg
       v-if="img"
       :src="img"
-      :alt="img ? alt : ''"
+      :alt="alt || ''"
       :class="['banner__img', $slots.content ? 'banner__img--abs' : undefined, `banner__img--${fit}`]"
       format="webp"
     />

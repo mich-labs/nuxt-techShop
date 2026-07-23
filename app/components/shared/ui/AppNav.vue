@@ -29,7 +29,7 @@
 
 <script setup lang="ts">
 import toCapitalize from '~/utils/capitalize';
-import type { TRoutes } from '~~/types/routeLinks.type';
+import type { TRoutes } from '~/components/shared/lib/types/routeLinks.type';
 const {
   capitalize = false,
   size,
@@ -72,14 +72,14 @@ const variantClass = computed(() => {
       color: var(--accent);
 
       .nav__icon {
-        fill: var(--accent);
+        --svg-fill: var(--accent);
       }
     }
   }
 
   &__icon {
-    height: 25px;
-    width: auto;
+    --svg-width: auto;
+    --svg-height: 25px;
   }
 
   &--small {

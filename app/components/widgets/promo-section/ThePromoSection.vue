@@ -57,8 +57,8 @@ const { reverse = false } = defineProps<{
     gap: 30px;
   }
   &__svg {
-    fill: var(--pink);
-    width: 45px;
+    --svg-width: 45px;
+    --svg-fill: var(--pink);
   }
   &__text {
     text-align: center;
