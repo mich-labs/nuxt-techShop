@@ -80,7 +80,6 @@ const variantClass = computed(() => {
   &__icon {
     --svg-width: auto;
     --svg-height: 25px;
-    --svg-aspect: auto;
   }
 
   &--small {
