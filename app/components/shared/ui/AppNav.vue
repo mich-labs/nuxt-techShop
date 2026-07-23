@@ -72,14 +72,14 @@ const variantClass = computed(() => {
       color: var(--accent);
 
       .nav__icon {
-        fill: var(--accent);
+        --svg-fill: var(--accent);
       }
     }
   }
 
   &__icon {
-    height: 25px;
-    width: auto;
+    --svg-width: auto;
+    --svg-height: 25px;
   }
 
   &--small {
