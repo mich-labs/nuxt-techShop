@@ -6,18 +6,18 @@ import type { BlocksContent, SharedTekstovyjBlokDz } from '~~/cms';
  * Все они имеют идентичную форму после populate: '*'.
  */
 export interface AboutPageDto {
-    title: string;
-    seo?: { title: string; description: string } | null;
-    content?: SharedTekstovyjBlokDz[] | null;
+  title: string;
+  seo?: { title: string; description: string } | null;
+  content?: SharedTekstovyjBlokDz[] | null;
 }
 
 export interface AboutPageBlockModel {
-    title: string | null;
-    content: BlocksContent;
+  title: string | null;
+  content: BlocksContent;
 }
 
 export interface AboutPageModel {
-    title: string;
-    seo: { title: string; description: string };
-    content: AboutPageBlockModel[];
+  title: string;
+  seo: { title: string; description: string };
+  content: AboutPageBlockModel[];
 }

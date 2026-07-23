@@ -56,7 +56,7 @@
       :src="node.image.url"
       :alt="node.image.alternativeText || node.image.name"
       class="blocks__image"
-    >
+    />
 
     <a
       v-else-if="node.type === 'link'"
@@ -67,8 +67,11 @@
     </a>
 
     <template
-      v-else-if="node.type === 'text' && !node.bold && !node.italic && !node.underline && !node.strikethrough && !node.code"
-    >{{ node.text }}</template>
+      v-else-if="
+        node.type === 'text' && !node.bold && !node.italic && !node.underline && !node.strikethrough && !node.code
+      "
+      >{{ node.text }}</template
+    >
 
     <span
       v-else-if="node.type === 'text'"
@@ -79,7 +82,8 @@
         'blocks__text--strikethrough': node.strikethrough,
         'blocks__text--code': node.code,
       }"
-    >{{ node.text }}</span>
+      >{{ node.text }}</span
+    >
   </template>
 </template>
 
@@ -136,26 +140,23 @@ defineProps<{ nodes: RenderableNode[] }>();
 
   &__list {
     font-size: 1.6rem;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
     padding-left: 26px;
     letter-spacing: 0.05em;
 
-    &--ordered {
-      list-style-type: decimal;
-    }
-
     &:not(:last-child) {
       margin-bottom: 10px;
     }
-  }
-
-  &__list:not(.blocks__list--ordered) {
-    list-style-type: disc;
   }
 
   &__list-item {
-    &:not(:last-child) {
-      margin-bottom: 10px;
-    }
+    list-style-type: disc;
+  }
+
+  &__list--ordered &__list-item {
+    list-style-type: decimal;
   }
 
   &__image {
