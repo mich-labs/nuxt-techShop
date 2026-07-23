@@ -1,7 +1,7 @@
 /* eslint-disable */
 // Auto-generated Strapi API client
 // Do not edit manually
-export const SCHEMA_HASH = '8923a0678e8276176a4616b00ba522dca971dd6405465ac4b3f78668d9555fe6';
+export const SCHEMA_HASH = 'fe06802f3f5d6de8138d3e5d0e431ab0b4025f603ba4e5aad7d0dbe32ed6cd14';
 export const GENERATOR_VERSION = '2.0.1';
 /**
  * Error thrown for non-2xx responses from Strapi.
@@ -643,6 +643,8 @@ export class StrapiClient {
     }
     // Plugin APIs (registry-driven)
     upload;
+    dostavka;
+    garantiyaIOplata;
     glavnaya;
     kontakty;
     oNas;
@@ -656,6 +658,8 @@ export class StrapiClient {
         this.auth = new AuthAPI(this.config);
         // Initialize plugin APIs
         this.upload = new UploadAPI(this.config);
+        this.dostavka = new SingleTypeAPI('dostavka', this.config);
+        this.garantiyaIOplata = new SingleTypeAPI('garantiya-i-oplata', this.config);
         this.glavnaya = new SingleTypeAPI('glavnaya', this.config);
         this.kontakty = new SingleTypeAPI('kontakty', this.config);
         this.oNas = new SingleTypeAPI('o-nas', this.config);

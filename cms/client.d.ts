@@ -1,7 +1,7 @@
-export declare const SCHEMA_HASH = "8923a0678e8276176a4616b00ba522dca971dd6405465ac4b3f78668d9555fe6";
+export declare const SCHEMA_HASH = "fe06802f3f5d6de8138d3e5d0e431ab0b4025f603ba4e5aad7d0dbe32ed6cd14";
 export declare const GENERATOR_VERSION = "2.0.1";
-import type { Glavnaya, GlavnayaGetPayload, GlavnayaPopulateParam, GlavnayaCreateInput, GlavnayaUpdateInput, Kontakty, KontaktyGetPayload, KontaktyPopulateParam, KontaktyCreateInput, KontaktyUpdateInput, ONas, ONasGetPayload, ONasPopulateParam, ONasCreateInput, ONasUpdateInput, Permission, PermissionGetPayload, PermissionPopulateParam, PermissionCreateInput, PermissionUpdateInput, Role, RoleGetPayload, RolePopulateParam, RoleCreateInput, RoleUpdateInput, User, UserGetPayload, UserPopulateParam, UserCreateInput, UserUpdateInput, MediaFile } from './types.js';
-import type { GlavnayaFilters, KontaktyFilters, ONasFilters, PermissionFilters, RoleFilters, UserFilters } from './types.js';
+import type { Dostavka, DostavkaGetPayload, DostavkaPopulateParam, DostavkaCreateInput, DostavkaUpdateInput, GarantiyaIOplata, GarantiyaIOplataGetPayload, GarantiyaIOplataPopulateParam, GarantiyaIOplataCreateInput, GarantiyaIOplataUpdateInput, Glavnaya, GlavnayaGetPayload, GlavnayaPopulateParam, GlavnayaCreateInput, GlavnayaUpdateInput, Kontakty, KontaktyGetPayload, KontaktyPopulateParam, KontaktyCreateInput, KontaktyUpdateInput, ONas, ONasGetPayload, ONasPopulateParam, ONasCreateInput, ONasUpdateInput, Permission, PermissionGetPayload, PermissionPopulateParam, PermissionCreateInput, PermissionUpdateInput, Role, RoleGetPayload, RolePopulateParam, RoleCreateInput, RoleUpdateInput, User, UserGetPayload, UserPopulateParam, UserCreateInput, UserUpdateInput, MediaFile } from './types.js';
+import type { DostavkaFilters, GarantiyaIOplataFilters, GlavnayaFilters, KontaktyFilters, ONasFilters, PermissionFilters, RoleFilters, UserFilters } from './types.js';
 export interface StrapiResponse<T> {
     data: T;
     meta?: {
@@ -202,7 +202,11 @@ type Equal<X, Y> = (<T>() => T extends X ? 1 : 2) extends <T>() => T extends Y ?
  * Utility type to automatically infer populated type based on base type
  * Uses exact equality instead of extends to avoid structural typing issues
  */
-type GetPopulated<TBase, TPopulate> = Equal<TBase, Glavnaya> extends true ? GlavnayaGetPayload<{
+type GetPopulated<TBase, TPopulate> = Equal<TBase, Dostavka> extends true ? DostavkaGetPayload<{
+    populate: TPopulate;
+}> : Equal<TBase, GarantiyaIOplata> extends true ? GarantiyaIOplataGetPayload<{
+    populate: TPopulate;
+}> : Equal<TBase, Glavnaya> extends true ? GlavnayaGetPayload<{
     populate: TPopulate;
 }> : Equal<TBase, Kontakty> extends true ? KontaktyGetPayload<{
     populate: TPopulate;
@@ -470,6 +474,8 @@ export declare class StrapiClient {
     /** @deprecated Use `auth` instead. Will be removed in a future major. */
     get authentication(): AuthAPI;
     upload: UploadAPI;
+    dostavka: SingleTypeAPI<Dostavka, DostavkaCreateInput, DostavkaUpdateInput, DostavkaFilters, DostavkaPopulateParam>;
+    garantiyaIOplata: SingleTypeAPI<GarantiyaIOplata, GarantiyaIOplataCreateInput, GarantiyaIOplataUpdateInput, GarantiyaIOplataFilters, GarantiyaIOplataPopulateParam>;
     glavnaya: SingleTypeAPI<Glavnaya, GlavnayaCreateInput, GlavnayaUpdateInput, GlavnayaFilters, GlavnayaPopulateParam>;
     kontakty: SingleTypeAPI<Kontakty, KontaktyCreateInput, KontaktyUpdateInput, KontaktyFilters, KontaktyPopulateParam>;
     oNas: SingleTypeAPI<ONas, ONasCreateInput, ONasUpdateInput, ONasFilters, ONasPopulateParam>;

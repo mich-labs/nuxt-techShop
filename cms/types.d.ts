@@ -317,6 +317,26 @@ export type SharedTekstovyjBlokDzCreateInput = SharedTekstovyjBlokCreateInput & 
 export type SharedTekstovyjBlokDzUpdateInput = SharedTekstovyjBlokUpdateInput & {
     __component: 'shared.tekstovyj-blok';
 };
+export interface Dostavka {
+    readonly __typename?: 'Dostavka';
+    id: number;
+    documentId: string;
+    createdAt: string;
+    updatedAt: string;
+    publishedAt: string | null;
+    title: string;
+    locale: string | null;
+}
+export interface GarantiyaIOplata {
+    readonly __typename?: 'GarantiyaIOplata';
+    id: number;
+    documentId: string;
+    createdAt: string;
+    updatedAt: string;
+    publishedAt: string | null;
+    title: string;
+    locale: string | null;
+}
 export interface Glavnaya {
     readonly __typename?: 'Glavnaya';
     id: number;
@@ -384,6 +404,38 @@ export interface User {
     confirmed: boolean | null;
     /** @default false */
     blocked: boolean | null;
+}
+/** Create input for Dostavka */
+export interface DostavkaCreateInput {
+    title: string;
+    locale?: string | null;
+    localizations?: RelationInput;
+    seo?: SharedSeoCreateInput | null;
+    content?: SharedTekstovyjBlokDzCreateInput[] | null;
+}
+/** Update input for Dostavka */
+export interface DostavkaUpdateInput {
+    title?: string;
+    locale?: string | null;
+    localizations?: RelationInput;
+    seo?: SharedSeoUpdateInput | null;
+    content?: SharedTekstovyjBlokDzUpdateInput[] | null;
+}
+/** Create input for GarantiyaIOplata */
+export interface GarantiyaIOplataCreateInput {
+    title: string;
+    locale?: string | null;
+    localizations?: RelationInput;
+    seo?: SharedSeoCreateInput | null;
+    content?: SharedTekstovyjBlokDzCreateInput[] | null;
+}
+/** Update input for GarantiyaIOplata */
+export interface GarantiyaIOplataUpdateInput {
+    title?: string;
+    locale?: string | null;
+    localizations?: RelationInput;
+    seo?: SharedSeoUpdateInput | null;
+    content?: SharedTekstovyjBlokDzUpdateInput[] | null;
 }
 /** Create input for Glavnaya */
 export interface GlavnayaCreateInput {
@@ -527,6 +579,46 @@ export type WidgetsSlajderPopulateParam = {
     banners?: true | {
         fields?: (keyof SharedBanner & string)[];
         populate?: SharedBannerPopulateParam | (keyof SharedBannerPopulateParam & string)[] | '*';
+    };
+};
+export type DostavkaPopulateParam = {
+    localizations?: true | {
+        fields?: _EntityField<Dostavka>[];
+        populate?: DostavkaPopulateParam | (keyof DostavkaPopulateParam & string)[] | '*';
+        filters?: DostavkaFilters;
+        sort?: _SortValue<Dostavka> | _SortValue<Dostavka>[];
+        limit?: number;
+        start?: number;
+    };
+    seo?: true | {
+        fields?: (keyof SharedSeo & string)[];
+    };
+    content?: true | {
+        on?: {
+            'shared.tekstovyj-blok'?: true | {
+                fields?: (keyof SharedTekstovyjBlok & string)[];
+            };
+        };
+    };
+};
+export type GarantiyaIOplataPopulateParam = {
+    localizations?: true | {
+        fields?: _EntityField<GarantiyaIOplata>[];
+        populate?: GarantiyaIOplataPopulateParam | (keyof GarantiyaIOplataPopulateParam & string)[] | '*';
+        filters?: GarantiyaIOplataFilters;
+        sort?: _SortValue<GarantiyaIOplata> | _SortValue<GarantiyaIOplata>[];
+        limit?: number;
+        start?: number;
+    };
+    seo?: true | {
+        fields?: (keyof SharedSeo & string)[];
+    };
+    content?: true | {
+        on?: {
+            'shared.tekstovyj-blok'?: true | {
+                fields?: (keyof SharedTekstovyjBlok & string)[];
+            };
+        };
     };
 };
 export type GlavnayaPopulateParam = {
@@ -680,6 +772,48 @@ export type WidgetsSlajderGetPayload<P extends {
     } ? SharedBannerGetPayload<{
         populate: NestedPop;
     }> : SharedBanner, SharedBanner, Pop['banners']>[] : never;
+} : {});
+export type DostavkaGetPayload<P extends {
+    populate?: unknown;
+} = {}> = Dostavka & (P extends {
+    populate: infer Pop;
+} ? Pop extends '*' | true ? {
+    localizations?: Dostavka[];
+    seo?: SharedSeo;
+    content?: SharedTekstovyjBlokDz[];
+} : Pop extends readonly (infer _)[] ? {
+    localizations?: 'localizations' extends Pop[number] ? Dostavka[] : never;
+    seo?: 'seo' extends Pop[number] ? SharedSeo : never;
+    content?: 'content' extends Pop[number] ? SharedTekstovyjBlokDz[] : never;
+} : {
+    localizations?: 'localizations' extends keyof Pop ? _ApplyFields<Pop['localizations'] extends {
+        populate: infer NestedPop;
+    } ? DostavkaGetPayload<{
+        populate: NestedPop;
+    }> : Dostavka, Dostavka, Pop['localizations']>[] : never;
+    seo?: 'seo' extends keyof Pop ? _ApplyFields<SharedSeo, SharedSeo, Pop['seo']> : never;
+    content?: 'content' extends keyof Pop ? SharedTekstovyjBlokDz[] : never;
+} : {});
+export type GarantiyaIOplataGetPayload<P extends {
+    populate?: unknown;
+} = {}> = GarantiyaIOplata & (P extends {
+    populate: infer Pop;
+} ? Pop extends '*' | true ? {
+    localizations?: GarantiyaIOplata[];
+    seo?: SharedSeo;
+    content?: SharedTekstovyjBlokDz[];
+} : Pop extends readonly (infer _)[] ? {
+    localizations?: 'localizations' extends Pop[number] ? GarantiyaIOplata[] : never;
+    seo?: 'seo' extends Pop[number] ? SharedSeo : never;
+    content?: 'content' extends Pop[number] ? SharedTekstovyjBlokDz[] : never;
+} : {
+    localizations?: 'localizations' extends keyof Pop ? _ApplyFields<Pop['localizations'] extends {
+        populate: infer NestedPop;
+    } ? GarantiyaIOplataGetPayload<{
+        populate: NestedPop;
+    }> : GarantiyaIOplata, GarantiyaIOplata, Pop['localizations']>[] : never;
+    seo?: 'seo' extends keyof Pop ? _ApplyFields<SharedSeo, SharedSeo, Pop['seo']> : never;
+    content?: 'content' extends keyof Pop ? SharedTekstovyjBlokDz[] : never;
 } : {});
 export type GlavnayaGetPayload<P extends {
     populate?: unknown;
@@ -911,6 +1045,30 @@ export interface TypedQueryParams<TEntity, TFilters = Record<string, any>, TPopu
     populate?: TPopulate;
     /** Select specific fields */
     fields?: (keyof TEntity)[];
+}
+/** Type-safe filters for Dostavka */
+export interface DostavkaFilters extends LogicalOperators<DostavkaFilters> {
+    id?: number | IdFilterOperators;
+    documentId?: string | StringFilterOperators;
+    title?: string | StringFilterOperators;
+    locale?: string | StringFilterOperators;
+    localizations?: {
+        id?: number | IdFilterOperators;
+        documentId?: string | StringFilterOperators;
+        [key: string]: any;
+    };
+}
+/** Type-safe filters for GarantiyaIOplata */
+export interface GarantiyaIOplataFilters extends LogicalOperators<GarantiyaIOplataFilters> {
+    id?: number | IdFilterOperators;
+    documentId?: string | StringFilterOperators;
+    title?: string | StringFilterOperators;
+    locale?: string | StringFilterOperators;
+    localizations?: {
+        id?: number | IdFilterOperators;
+        documentId?: string | StringFilterOperators;
+        [key: string]: any;
+    };
 }
 /** Type-safe filters for Glavnaya */
 export interface GlavnayaFilters extends LogicalOperators<GlavnayaFilters> {
