@@ -66,6 +66,10 @@
       <app-blocks-renderer :nodes="node.children" />
     </a>
 
+    <template
+      v-else-if="node.type === 'text' && !node.bold && !node.italic && !node.underline && !node.strikethrough && !node.code"
+    >{{ node.text }}</template>
+
     <span
       v-else-if="node.type === 'text'"
       :class="{
@@ -132,9 +136,6 @@ defineProps<{ nodes: RenderableNode[] }>();
 
   &__list {
     font-size: 1.6rem;
-    display: flex;
-    flex-direction: column;
-    gap: 10px;
     padding-left: 26px;
     letter-spacing: 0.05em;
 
@@ -149,6 +150,12 @@ defineProps<{ nodes: RenderableNode[] }>();
 
   &__list:not(.blocks__list--ordered) {
     list-style-type: disc;
+  }
+
+  &__list-item {
+    &:not(:last-child) {
+      margin-bottom: 10px;
+    }
   }
 
   &__image {
