@@ -1,19 +1,43 @@
 <template>
-    <about-template :title="delivery?.title">
-        <app-content :content="delivery" />
+    <about-template :title="data.title">
+        <section
+            v-for="(block, i) in data.content"
+            :key="i"
+            class="about-content__block"
+        >
+            <h2
+                v-if="block.title"
+                class="about-content__block-title"
+            >
+                {{ block.title }}
+            </h2>
+            <app-blocks-renderer :nodes="block.content" />
+        </section>
     </about-template>
 </template>
 
 <script setup lang="ts">
-const route = useRoute()
-
-const { data: delivery } = await useAsyncData(
-    route.path,
-    () => queryCollection('content').path(route.path).first()
-)
+const data = await useAboutPage('about-delivery', (cms) => cms.dostavka.find({ populate: '*' }));
 
 useSeoMeta({
-    title: delivery.value?.title,
-    description: delivery.value?.description
-})
+    title: data.seo.title,
+    description: data.seo.description,
+});
 </script>
+
+<style scoped lang="scss">
+.about-content {
+    &__block {
+        &:not(:last-child) {
+            margin-bottom: 40px;
+        }
+    }
+
+    &__block-title {
+        font-size: 2rem;
+        font-weight: 500;
+        letter-spacing: 0.05em;
+        margin-bottom: 20px;
+    }
+}
+</style>
